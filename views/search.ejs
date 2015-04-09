@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search for a Movie</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class = "container">
+		<form class = "myForm" method="GET" action="/search" >
+			<input type="text" name="q" placeholder="Search"> 
+			<button>Click for Search</button>
+		</form>
+		<% if (noMovie) { %>
+			<div> No results </div>
+		<% } %>
+
+		<% movies.forEach(function(movie){ %>
+	<div >
+		<a class="movieLink" href ="/movie?id=
+			<%= movie.imdbID %>" > 
+
+		<%= movie.Title %> </a>  
+	</div>
+
+	<% }) %>
+</div>
+
+</body>
+</html>
