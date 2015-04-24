@@ -3,14 +3,14 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<meta charset="UTF-8">
-	<title>The Index Page </title>
+	<title>The PROFILE </title>
 </head>
 <body>
-	This is the index page. You probably want to login.
-	Here's that.
-	<button> <a href = "/login"> Login </a> </button>
 	<div class = "container">
-		<%= title  %>
+		<%= ejsUser.email  %>
+		<form method="POST" action="/logout?_method=DELETE">
+			<button>Logout</button>
+		</form>
 	</div>
 </body>
 </html>

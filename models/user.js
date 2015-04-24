@@ -23,6 +23,10 @@ module.exports = function (sequelize, DataTypes){
     instanceMethods: {
       checkPassword: function(password) {
         return bcrypt.compareSync(password, this.passwordDigest);
+      },
+      addToFaves: function(db, imdbID, rating){
+        return db.FavoriteMovie;
+        .create({imdbID: imdbID, rating: rating, userId : this.id})
       }
     },
     classMethods: {
@@ -53,9 +57,15 @@ module.exports = function (sequelize, DataTypes){
           }
           else if (user.checkPassword(password)){
             return user;
+          } else {
+            return false;
           }
 
         });
+      },
+      associate: function(models) {
+        // associations can be defined here
+        this.hasMany(FavoriteMovie);
       }
 
     } // close classMethods

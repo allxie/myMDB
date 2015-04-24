@@ -9,6 +9,12 @@
 	<div class = "container">
 		<div>Title: <%= movie.Title %></div>
 		<div>Plot: <%= movie.Plot  %> </div>
+
+		<form method="POST" action="/favorites">
+			<input type="text" style="display: none;"
+				value="<%= movie.imdbID %>" name="imdbID">
+			<input type="number" name ="rating">
+			<button> Add Favorite</button>
 	</div>
 </body>
 </html>
